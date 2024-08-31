@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "32977ba1-b516-4238-b59a-549f18b466dc",
+		"name": "werehouse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24509654"
+	},
+	"item": [
+		{
+			"name": "product/add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": 1, \"name\": \"Sample Product\", \"quantity\": 10}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6500/product/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6500",
+					"path": [
+						"product",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "system/status",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": 1, \"name\": \"Sample Product\", \"quantity\": 10}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6500/system/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6500",
+					"path": [
+						"system",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product/remove/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6500/product/remove/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6500",
+					"path": [
+						"product",
+						"remove",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

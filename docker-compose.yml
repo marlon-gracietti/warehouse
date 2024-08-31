@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  warehouse:
+    build: .
+    container_name: warehouse
+    ports:
+      - "6500:6500"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/warehouse
+      SPRING_DATASOURCE_USERNAME: hackerearth
+      SPRING_DATASOURCE_PASSWORD: devops123
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create
+      SPRING_JPA_SHOW_SQL: "true"
+    depends_on:
+      - database
+    networks:
+      - my_network
+
+  database:
+    image: postgres:13
+    container_name: database
+    environment:
+      POSTGRES_DB: warehouse
+      POSTGRES_USER: hackerearth
+      POSTGRES_PASSWORD: devops123
+    volumes:
+      - dbfiles:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - my_network
+
+volumes:
+  dbfiles:
+    driver: local
+
+networks:
+  my_network:
+    name: my_network
